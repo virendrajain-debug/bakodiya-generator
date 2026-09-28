@@ -1,5 +1,6 @@
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import ReelCard from "@/components/ReelCard";
 import Reveal from "@/components/Reveal";
 import { localBusinessSchema } from "@/lib/jsonld";
 import { pageMeta } from "@/lib/seo";
@@ -10,6 +11,7 @@ import {
   generatorImages,
   generatorTypes,
   quickFacts,
+  reels,
   trustPoints,
 } from "@/lib/data";
 
@@ -213,26 +215,34 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="empty-state">
-            <strong>Fresh reels go up on Instagram first.</strong>
-            <p>
-              Site videos and photos are being collected for this page. Until
-              then, catch them on Instagram as they happen.
-            </p>
-            <div className="btn-row" style={{ justifyContent: "center" }}>
-              <Link href="/work" className="btn btn-secondary">
-                Watch Our Work
-              </Link>
-              <a
-                className="btn btn-primary"
-                href={site.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Follow on Instagram
-              </a>
+          {reels.length > 0 ? (
+            <div className="reel-grid">
+              {reels.map((item) => (
+                <ReelCard key={item.instagramUrl} item={item} />
+              ))}
             </div>
-          </div>
+          ) : (
+            <div className="empty-state">
+              <strong>Fresh reels go up on Instagram first.</strong>
+              <p>
+                Site videos and photos are being collected for this page.
+                Until then, catch them on Instagram as they happen.
+              </p>
+              <div className="btn-row" style={{ justifyContent: "center" }}>
+                <Link href="/work" className="btn btn-secondary">
+                  Watch Our Work
+                </Link>
+                <a
+                  className="btn btn-primary"
+                  href={site.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Follow on Instagram
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </Reveal>
 
