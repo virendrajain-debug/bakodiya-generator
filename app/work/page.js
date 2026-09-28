@@ -1,6 +1,7 @@
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import ReelCard from "@/components/ReelCard";
+import Reveal from "@/components/Reveal";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -16,7 +17,7 @@ export const metadata = pageMeta({
 export default function WorkPage() {
   return (
     <>
-      <section className="page-hero">
+      <Reveal tag="section" className="page-hero" immediate>
         <div className="container">
           <nav className="breadcrumbs" aria-label="Breadcrumb">
             <ol>
@@ -32,9 +33,9 @@ export default function WorkPage() {
             Bakodiya Generator House in Shahpur, Betul, Madhya Pradesh.
           </p>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section">
+      <Reveal tag="section" className="section">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Reels</span>
@@ -71,9 +72,9 @@ export default function WorkPage() {
             </div>
           )}
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section section-soft">
+      <Reveal tag="section" className="section section-soft">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Photos</span>
@@ -106,9 +107,9 @@ export default function WorkPage() {
             </div>
           )}
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section">
+      <Reveal tag="section" className="section">
         <div className="container split">
           <div>
             <span className="eyebrow">Instagram</span>
@@ -145,7 +146,7 @@ export default function WorkPage() {
             />
           </div>
         </div>
-      </section>
+      </Reveal>
 
       <JsonLd
         data={breadcrumbSchema([

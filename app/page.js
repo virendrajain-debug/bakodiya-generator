@@ -1,5 +1,6 @@
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import Reveal from "@/components/Reveal";
 import { localBusinessSchema } from "@/lib/jsonld";
 import { pageMeta } from "@/lib/seo";
 import { site, waLink } from "@/lib/site";
@@ -24,7 +25,7 @@ export default function HomePage() {
     <>
       <section className="hero">
         <div className="container hero-grid">
-          <div>
+          <Reveal tag="div" immediate delay={0.05}>
             <span className="eyebrow">Bakodiya Generator House</span>
             <h1>Generators from 10 kVA to 500 kVA in Shahpur, Betul</h1>
             <p className="hero-lead">
@@ -41,9 +42,9 @@ export default function HomePage() {
                 View Generators
               </Link>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="hero-media">
+          <Reveal tag="div" className="hero-media" immediate delay={0.2}>
             <img
               src="/images/generators/hero-generator.webp"
               width="1280"
@@ -55,11 +56,11 @@ export default function HomePage() {
             <p className="hero-caption">
               Diesel generator sets in canopy and open configurations
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="facts" aria-label="Quick facts">
+      <Reveal tag="section" className="facts" aria-label="Quick facts" immediate delay={0.4}>
         <div className="container">
           <div className="facts-grid">
             {quickFacts.map((fact) => (
@@ -70,9 +71,9 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section">
+      <Reveal tag="section" className="section">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Capacity Range</span>
@@ -102,9 +103,9 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section section-soft">
+      <Reveal tag="section" className="section section-soft">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Brands</span>
@@ -148,9 +149,9 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section">
+      <Reveal tag="section" className="section">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Configurations</span>
@@ -181,9 +182,9 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section section-soft">
+      <Reveal tag="section" className="section section-soft">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Why Call Us</span>
@@ -199,9 +200,9 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section">
+      <Reveal tag="section" className="section">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Our Work</span>
@@ -233,9 +234,9 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section section-soft">
+      <Reveal tag="section" className="section section-soft">
         <div className="container split">
           <div className="media-frame">
             <img
@@ -276,9 +277,9 @@ export default function HomePage() {
             </ul>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section">
+      <Reveal tag="section" className="section">
         <div className="container split">
           <div>
             <span className="eyebrow">Visit Us</span>
@@ -302,40 +303,46 @@ export default function HomePage() {
                 Call {site.phoneLabel}
               </a>
             </div>
+
+            <div className="location-card" style={{ marginTop: 22 }}>
+              <h3>Bakodiya Generator House</h3>
+              <address>{site.addressLine}</address>
+              <ul className="info-list">
+                <li>
+                  <span>Capacity</span>
+                  <strong>10 kVA to 500 kVA</strong>
+                </li>
+                <li>
+                  <span>Brands</span>
+                  <strong>5 major brands</strong>
+                </li>
+                <li>
+                  <span>Types</span>
+                  <strong>Open &amp; Canopy</strong>
+                </li>
+              </ul>
+              <a
+                className="btn btn-primary btn-block"
+                href={`tel:${site.phone}`}
+              >
+                Call Now
+              </a>
+            </div>
           </div>
 
-          <div className="location-card">
-            <h3>Bakodiya Generator House</h3>
-            <address>{site.addressLine}</address>
-            <ul className="info-list">
-              <li>
-                <span>Capacity</span>
-                <strong>10 kVA to 500 kVA</strong>
-              </li>
-              <li>
-                <span>Brands</span>
-                <strong>5 major brands</strong>
-              </li>
-              <li>
-                <span>Types</span>
-                <strong>Open &amp; Canopy</strong>
-              </li>
-              <li>
-                <span>Call</span>
-                <a href={`tel:${site.phone}`}>{site.phoneLabel}</a>
-              </li>
-            </ul>
-            <a
-              className="btn btn-primary btn-block"
-              href={`tel:${site.phone}`}
-            >
-              Call Now
-            </a>
+          <div className="map-frame">
+            <iframe
+              src={site.mapsEmbed}
+              title="Map showing Bakodiya Generator House, Shahpur, Betul, Madhya Pradesh"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="cta-band">
+      <Reveal tag="section" className="cta-band">
         <div className="container cta-inner">
           <div>
             <h2>Tell Us Your Required Capacity</h2>
@@ -358,7 +365,7 @@ export default function HomePage() {
             </a>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       <JsonLd data={localBusinessSchema()} />
     </>

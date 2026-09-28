@@ -1,5 +1,6 @@
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import Reveal from "@/components/Reveal";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { pageMeta } from "@/lib/seo";
 import { site, waLink } from "@/lib/site";
@@ -14,7 +15,7 @@ export const metadata = pageMeta({
 export default function ContactPage() {
   return (
     <>
-      <section className="page-hero">
+      <Reveal tag="section" className="page-hero" immediate>
         <div className="container">
           <nav className="breadcrumbs" aria-label="Breadcrumb">
             <ol>
@@ -30,9 +31,9 @@ export default function ContactPage() {
             Betul. Directions are one tap away.
           </p>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section">
+      <Reveal tag="section" className="section">
         <div className="container split">
           <div>
             <span className="eyebrow">Location</span>
@@ -100,9 +101,9 @@ export default function ContactPage() {
             </a>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section section-soft" id="call">
+      <Reveal tag="section" className="section section-soft" id="call">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Call or WhatsApp</span>
@@ -164,9 +165,9 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="cta-band">
+      <Reveal tag="section" className="cta-band">
         <div className="container cta-inner">
           <div>
             <h2>Prefer a quick message?</h2>
@@ -189,7 +190,7 @@ export default function ContactPage() {
             </Link>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       <JsonLd
         data={breadcrumbSchema([

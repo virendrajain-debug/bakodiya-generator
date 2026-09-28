@@ -1,5 +1,6 @@
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import Reveal from "@/components/Reveal";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -20,7 +21,7 @@ export const metadata = pageMeta({
 export default function GeneratorsPage() {
   return (
     <>
-      <section className="page-hero">
+      <Reveal tag="section" className="page-hero" immediate>
         <div className="container">
           <nav className="breadcrumbs" aria-label="Breadcrumb">
             <ol>
@@ -37,9 +38,9 @@ export default function GeneratorsPage() {
             generator sets from 10 kVA to 500 kVA in Shahpur, Betul.
           </p>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section">
+      <Reveal tag="section" className="section">
         <div className="container split">
           <div>
             <span className="eyebrow">Capacity Range</span>
@@ -76,9 +77,9 @@ export default function GeneratorsPage() {
             />
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section section-soft">
+      <Reveal tag="section" className="section section-soft">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Generator Types</span>
@@ -108,9 +109,9 @@ export default function GeneratorsPage() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section">
+      <Reveal tag="section" className="section">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Brand Selection</span>
@@ -145,9 +146,9 @@ export default function GeneratorsPage() {
             </a>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section section-soft">
+      <Reveal tag="section" className="section section-soft">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Product Range</span>
@@ -174,9 +175,9 @@ export default function GeneratorsPage() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="cta-band">
+      <Reveal tag="section" className="cta-band">
         <div className="container cta-inner">
           <div>
             <h2>Tell Us Your Required Capacity</h2>
@@ -194,7 +195,7 @@ export default function GeneratorsPage() {
             </Link>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       <JsonLd
         data={breadcrumbSchema([
