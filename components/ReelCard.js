@@ -1,10 +1,11 @@
 export default function ReelCard({ item }) {
   const tags = [item.handle, item.brand, item.capacity, item.date].filter(Boolean);
+  const code = instagramCode(item.instagramUrl);
   const hasMedia = Boolean(item.video || item.poster);
 
   return (
     <article className="reel-card">
-      <div className={`reel-media${hasMedia ? "" : " reel-media-plain"}`}>
+      <div className={`reel-media${hasMedia || code ? "" : " reel-media-plain"}`}>
         {item.video ? (
           <video
             autoPlay
@@ -23,6 +24,15 @@ export default function ReelCard({ item }) {
             alt={item.title}
             loading="lazy"
             decoding="async"
+          />
+        ) : code ? (
+          <iframe
+            className="reel-embed"
+            src={`https://www.instagram.com/reel/${code}/embed/`}
+            title={`${item.title} — ${item.handle || "Instagram"} reel`}
+            loading="lazy"
+            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+            referrerPolicy="strict-origin-when-cross-origin"
           />
         ) : (
           <a
@@ -44,17 +54,24 @@ export default function ReelCard({ item }) {
         <p>{item.description}</p>
         {item.instagramUrl ? (
           <a
-            className="btn btn-primary"
+            className="btn btn-secondary"
             href={item.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Watch on Instagram
+            Open on Instagram
           </a>
         ) : null}
       </div>
     </article>
   );
+}
+
+function instagramCode(url = "") {
+  const match = url.match(
+    /instagram\.com\/(?:[A-Za-z0-9_.]+\/)?(?:p|reel|tv)\/([A-Za-z0-9_-]+)/
+  );
+  return match ? match[1] : null;
 }
 
 function InstagramIcon() {

@@ -41,8 +41,8 @@ export default function WorkPage() {
             <span className="eyebrow">Reels</span>
             <h2>Video Reels of Our Generator Work</h2>
             <p>
-              Short videos from deliveries, installations and new stock. They
-              play on their own, without sound.
+              Short videos from deliveries, installations and new stock —
+              play them right here on the page.
             </p>
           </div>
 
